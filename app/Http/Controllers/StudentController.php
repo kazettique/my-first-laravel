@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Student;
-
 use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
@@ -32,13 +30,13 @@ class StudentController extends Controller
 
         if ($validator->fails()) {
             $data = [
-                "status" => 422,
-                "message" => $validator->messages(),
+                'status' => 422,
+                'message' => $validator->messages(),
             ];
 
             return response()->json($data, 200);
         } else {
-            $student = new Student;
+            $student = new Student();
 
             $student->name = $request->name;
             $student->email = $request->email;
@@ -65,8 +63,8 @@ class StudentController extends Controller
 
         if ($validator->fails()) {
             $data = [
-                "status" => 422,
-                "message" => $validator->messages(),
+                'status' => 422,
+                'message' => $validator->messages(),
             ];
 
             return response()->json($data, 200);
