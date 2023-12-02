@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08ee170e8840dcb5942ad375cbd1feee",
+    "content-hash": "baf2da55f0f4532ad6128f2b26c24cb1",
     "packages": [
+        {
+            "name": "alexanderpas/http-enum",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexanderpas/php-http-enum.git",
+                "reference": "8e96f12de0e7ab1221651463918f64f208b9d65c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexanderpas/php-http-enum/zipball/8e96f12de0e7ab1221651463918f64f208b9d65c",
+                "reference": "8e96f12de0e7ab1221651463918f64f208b9d65c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.15",
+                "infection/infection": "^0.25.2",
+                "php-parallel-lint/php-parallel-lint": "^1.3",
+                "phpunit/phpunit": "^10",
+                "sebastian/diff": "5.0.x-dev as 4.x-dev",
+                "symfony/dependency-injection": "^5.3",
+                "symplify/easy-coding-standard": "^9.4",
+                "vimeo/psalm": "^4.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alexanderpas\\Common\\HTTP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSL-1.0"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Pas",
+                    "email": "git@dropdev.org"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/alexanderpas/php-http-enum/issues",
+                "source": "https://github.com/alexanderpas/php-http-enum/tree/1.0.0"
+            },
+            "time": "2021-09-20T18:53:53+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
