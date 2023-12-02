@@ -58,7 +58,7 @@ class StudentController extends Controller
     public function edit(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string',
+            'name' => ['required', 'string'],
             'email' => 'required|email',
             'phone' => 'required',
         ]);
