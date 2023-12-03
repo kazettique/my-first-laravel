@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use Illuminate\Support\Facades\Validator;
+use Alexanderpas\Common\HTTP\StatusCode;
 
 class StudentController extends Controller
 {
@@ -13,15 +14,16 @@ class StudentController extends Controller
         $student = Student::all();
 
         $data = [
-            'status' => 200,
+            'status' => StatusCode::HTTP_200->value,
             'student' => $student,
         ];
 
-        return response()->json($data, 200);
+        return response()->json($data, StatusCode::HTTP_200->value);
     }
 
     public function upload(Request $request)
     {
+        // todo: more strict validation
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -29,12 +31,13 @@ class StudentController extends Controller
         ]);
 
         if ($validator->fails()) {
+            // todo: need response model
             $data = [
-                'status' => 422,
+                'status' => StatusCode::HTTP_422->value,
                 'message' => $validator->messages(),
             ];
 
-            return response()->json($data, 200);
+            return response()->json($data, StatusCode::HTTP_422->value);
         } else {
             $student = new Student();
 
@@ -44,12 +47,13 @@ class StudentController extends Controller
 
             $student->save();
 
+            // todo: need response model
             $data = [
-                'status' => 200,
+                'status' => StatusCode::HTTP_200->value,
                 'message' => 'Data uploaded successfully',
             ];
 
-            return response()->json($data, 200);
+            return response()->json($data, StatusCode::HTTP_200->value);
         }
     }
 
@@ -62,12 +66,13 @@ class StudentController extends Controller
         ]);
 
         if ($validator->fails()) {
+            // todo: need response model
             $data = [
-                'status' => 422,
+                'status' => StatusCode::HTTP_422->value,
                 'message' => $validator->messages(),
             ];
 
-            return response()->json($data, 200);
+            return response()->json($data, StatusCode::HTTP_422->value);
         } else {
             $student = Student::find($id);
 
@@ -77,12 +82,13 @@ class StudentController extends Controller
 
             $student->save();
 
+            // todo: need response model
             $data = [
-                'status' => 200,
+                'status' => StatusCode::HTTP_200->value,
                 'message' => 'Data updated successfully',
             ];
 
-            return response()->json($data, 200);
+            return response()->json($data, StatusCode::HTTP_200->value);
         }
     }
 
@@ -92,11 +98,12 @@ class StudentController extends Controller
 
         $student->delete();
 
+        // todo: need response model
         $data = [
-            'status' => 200,
+            'status' => StatusCode::HTTP_200->value,
             'message' => 'data delete successfully'
         ];
 
-        return response()->json($data, 200);
+        return response()->json($data, StatusCode::HTTP_200->value);
     }
 }
